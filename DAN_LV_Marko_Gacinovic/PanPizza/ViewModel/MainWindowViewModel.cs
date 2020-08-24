@@ -3,8 +3,6 @@ using PanPizza.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -35,6 +33,14 @@ namespace PanPizza.ViewModel
             set { sizeList = value; OnPropertyChanged("SizeList"); }
         }
 
+        private int price;
+        public int Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+
+
         public MainWindowViewModel(MainWindow mainOpen)
         {
             main = mainOpen;
@@ -58,7 +64,11 @@ namespace PanPizza.ViewModel
 
         private bool CanSaveExecute()
         {
-            return true;
+            if (price != 0)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void SaveExecute()
@@ -67,7 +77,7 @@ namespace PanPizza.ViewModel
             {
                 using (PanPizzaEntities context = new PanPizzaEntities())
                 {
-                    tblPizza newPizza = new tblPizza();
+                    tblPizza newPizza = new tblPizza();                    
 
                     newPizza.SizeID = size.SizeID;
                     newPizza.Salami = pizza.Salami;
@@ -82,13 +92,98 @@ namespace PanPizza.ViewModel
                     newPizza.Cheese = pizza.Cheese;
 
                     newPizza.PizzaID = pizza.PizzaID;
-                    newPizza.Price = pizza.Price;
+                    newPizza.Price = price;
 
                     context.tblPizzas.Add(newPizza);
                     context.SaveChanges();
 
                     MessageBox.Show("The new pizza added successfully");
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wrong inputs, please check your inputs or try again.");
+            }
+        }
+
+        // command for closing the window
+        private ICommand calculate;
+        public ICommand Calculate
+        {
+            get
+            {
+                if (calculate == null)
+                {
+                    calculate = new RelayCommand(param => CalculateExecute(), param => CanCalculateExecute());
+                }
+                return calculate;
+            }
+        }
+
+        private bool CanCalculateExecute()
+        {
+            return true;
+        }
+
+        private void CalculateExecute()
+        {
+            try
+            {
+                if (size.SizeName == "Small")
+                {
+                    price = 300;
+                }
+                else if (size.SizeName == "Medium")
+                {
+                    price = 500;
+                }
+                else if (size.SizeName == "Big")
+                {
+                    price = 700;
+                }
+
+                if (pizza.Salami == true)
+                {
+                    price += 15;
+                }
+                if (pizza.Ham == true)
+                {
+                    price += 15;
+                }
+                if (pizza.Kulen == true)
+                {
+                    price += 15;
+                }
+                if (pizza.Ketchup == true)
+                {
+                    price += 10;
+                }
+                if (pizza.Mayonnaise == true)
+                {
+                    price += 10;
+                }
+                if (pizza.HotPepper == true)
+                {
+                    price += 15;
+                }
+                if (pizza.Olives == true)
+                {
+                    price += 18;
+                }
+                if (pizza.Oregano == true)
+                {
+                    price += 12;
+                }
+                if (pizza.Sesame == true)
+                {
+                    price += 12;
+                }
+                if (pizza.Cheese == true)
+                {
+                    price += 15;
+                }
+
+                MessageBox.Show("Amount to pay is: " + price + " DIN");
             }
             catch (Exception)
             {

@@ -43,6 +43,12 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="6"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Label Grid.Column="1" Grid.Row="1" Name="lblSize" Content="Size: " Padding="0" HorizontalAlignment="Right"/>
@@ -55,9 +61,8 @@
         <Label Grid.Column="1" Grid.Row="15" Name="lblOlives" Content="Olives: " Padding="0" HorizontalAlignment="Right"/>
         <Label Grid.Column="1" Grid.Row="17" Name="lblOregano" Content="Oregano: " Padding="0" HorizontalAlignment="Right"/>
         <Label Grid.Column="1" Grid.Row="19" Name="lblSesame" Content="Sesame: " Padding="0" HorizontalAlignment="Right"/>
-        <Label Grid.Column="1" Grid.Row="21" Name="lblCheese" Content="Cheese: " Padding="0" HorizontalAlignment="Right"/>
-        <Label Grid.Column="1" Grid.Row="23" Name="lblPrice" Content="Price: " Padding="0" HorizontalAlignment="Right"/>
-        <ComboBox Grid.Column="3" Grid.Row="1" Name="txtSize" Height="20" Width="150" DisplayMemberPath="SizeName"
+        <Label Grid.Column="1" Grid.Row="21" Name="lblCheese" Content="Cheese: " Padding="0" HorizontalAlignment="Right"/>    
+        <ComboBox Grid.Column="3" Grid.Row="1" Name="cmbSize" Height="20" Width="150" DisplayMemberPath="SizeName"
                  ItemsSource="{Binding SizeList, UpdateSourceTrigger=PropertyChanged}"
                   SelectedItem="{Binding Size, UpdateSourceTrigger=PropertyChanged}"/>
         <CheckBox Grid.Column="3" Grid.Row="3" Name="cbSalami" Height="20" Width="150"
@@ -79,12 +84,12 @@
         <CheckBox Grid.Column="3" Grid.Row="19" Name="cbSesame" Height="20" Width="150"
                   IsChecked="{Binding Pizza.Sesame, UpdateSourceTrigger=PropertyChanged}"/>
         <CheckBox Grid.Column="3" Grid.Row="21" Name="cbCheese" Height="20" Width="150"
-                  IsChecked="{Binding Pizza.Cheese, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Grid.Column="3" Grid.Row="23" Name="txtPrice" IsReadOnly="True" Height="20" Width="150"
-                 Text="{Binding Pizza.Price, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Grid.Column="3" Grid.Row="27" Name="btnSave" Content="Save" Height="20" Width="70" HorizontalAlignment="Left"
+                  IsChecked="{Binding Pizza.Cheese, UpdateSourceTrigger=PropertyChanged}"/>        
+        <Button Grid.Column="3" Grid.Row="23" Name="btnCalculate" Content="Calculate amount" Height="20" Width="100" HorizontalAlignment="Center"
+                Command="{Binding Calculate, UpdateSourceTrigger=PropertyChanged}" Click="BtnCalculate_Click"/>
+        <Button Grid.Column="3" Grid.Row="29" Name="btnSave" Content="Save" Height="20" Width="70" HorizontalAlignment="Left"
                 Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}"/>
-        <Button Grid.Column="3" Grid.Row="27" Name="btnClose" Content="Close" Height="20" Width="70" HorizontalAlignment="Right"
+        <Button Grid.Column="3" Grid.Row="29" Name="btnClose" Content="Close" Height="20" Width="70" HorizontalAlignment="Right"
                 Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Window>

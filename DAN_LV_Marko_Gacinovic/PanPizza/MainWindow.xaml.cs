@@ -1,18 +1,5 @@
 ﻿using PanPizza.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PanPizza
 {
@@ -26,5 +13,20 @@ namespace PanPizza
             InitializeComponent();
             this.DataContext = new MainWindowViewModel(this);
         }
+
+        private void BtnCalculate_Click(object sender, RoutedEventArgs e)
+        {
+            cmbSize.IsEnabled = false;
+            cbSalami.IsEnabled = false;
+            cbHam.IsEnabled = false;
+            cbKulen.IsEnabled = false;
+            cbKetchup.IsEnabled = false;
+            cbMayonnaise.IsEnabled = false;
+            cbHotPepper.IsEnabled = false;
+            cbOlives.IsEnabled = false;
+            cbOregano.IsEnabled = false;
+            cbSesame.IsEnabled = false;
+            cbCheese.IsEnabled = false;
+        }        
     }
 }
