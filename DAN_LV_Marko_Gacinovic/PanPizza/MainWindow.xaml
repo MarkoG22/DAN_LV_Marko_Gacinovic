@@ -5,8 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PanPizza"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="350">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="1" Grid.Row="1" Name="lblSize" Content="Size: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="3" Name="lblSalami" Content="Salami: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="5" Name="lblHam" Content="Ham: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="7" Name="lblKulen" Content="Kulen: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="9" Name="lblKetchup" Content="Ketchup: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="11" Name="lblMayonnaise" Content="Mayonnaise: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="13" Name="lblHotPepper" Content="Hot Pepper: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="15" Name="lblOlives" Content="Olives: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="17" Name="lblOregano" Content="Oregano: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="19" Name="lblSesame" Content="Sesame: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="21" Name="lblCheese" Content="Cheese: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="23" Name="lblPrice" Content="Price: " Padding="0" HorizontalAlignment="Right"/>
+        <ComboBox Grid.Column="3" Grid.Row="1" Name="txtSize" Height="20" Width="150" DisplayMemberPath="SizeName"
+                 ItemsSource="{Binding SizeList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Size, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="3" Name="cbSalami" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Salami, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="5" Name="cbHam" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Ham, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="7" Name="cbReception" Height="20" Width="150"
+                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="9" Name="cbKulen" Height="20" Width="150"
+                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="11" Name="cbKetchup" Height="20" Width="150"
+                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="13" Name="cbMayonnaise" Height="20" Width="150"
+                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="15" Name="cbHotPepper" Height="20" Width="150"
+                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="17" Name="cbOlives" Height="20" Width="150"
+                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="19" Name="cbOregano" Height="20" Width="150"
+                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="21" Name="cbSesame" Height="20" Width="150"
+                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3" Grid.Row="23" Name="txtPrice" Height="20" Width="150" PreviewTextInput="NumbersTextBox"
+                 Text="{Binding Pizza.Price, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Column="3" Grid.Row="27" Name="btnSave" Content="Save" Height="20" Width="70" HorizontalAlignment="Left"
+                Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Column="3" Grid.Row="27" Name="btnClose" Content="Close" Height="20" Width="70" HorizontalAlignment="Right"
+                Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Window>
