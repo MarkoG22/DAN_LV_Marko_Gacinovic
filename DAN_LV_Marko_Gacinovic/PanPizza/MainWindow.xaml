@@ -88,7 +88,7 @@
         <Button Grid.Column="3" Grid.Row="23" Name="btnCalculate" Content="Calculate amount" Height="20" Width="100" HorizontalAlignment="Center"
                 Command="{Binding Calculate, UpdateSourceTrigger=PropertyChanged}" Click="BtnCalculate_Click"/>
         <Button Grid.Column="3" Grid.Row="29" Name="btnSave" Content="Save" Height="20" Width="70" HorizontalAlignment="Left"
-                Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}"/>
+                Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}" Click="BtnSave_Click"/>
         <Button Grid.Column="3" Grid.Row="29" Name="btnClose" Content="Close" Height="20" Width="70" HorizontalAlignment="Right"
                 Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>

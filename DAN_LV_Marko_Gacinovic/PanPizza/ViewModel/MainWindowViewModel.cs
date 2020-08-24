@@ -12,6 +12,7 @@ namespace PanPizza.ViewModel
     {
         MainWindow main;
 
+        #region Properties
         private tblPizza pizza;
         public tblPizza Pizza
         {
@@ -39,8 +40,9 @@ namespace PanPizza.ViewModel
             get { return price; }
             set { price = value; }
         }
+        #endregion
 
-
+        // constructor
         public MainWindowViewModel(MainWindow mainOpen)
         {
             main = mainOpen;
@@ -48,7 +50,8 @@ namespace PanPizza.ViewModel
             SizeList = GetAllSize();
         }
 
-        // commands
+        #region Commands
+        // command for saving data to the database
         private ICommand save;
         public ICommand Save
         {
@@ -62,15 +65,22 @@ namespace PanPizza.ViewModel
             }
         }
 
+        /// <summary>
+        /// method for enabling Save button
+        /// </summary>
+        /// <returns></returns>
         private bool CanSaveExecute()
         {
-            if (price != 0)
+            if (size != null && price != 0)
             {
                 return true;
             }
             return false;
         }
 
+        /// <summary>
+        /// method for adding pizza to the database
+        /// </summary>
         private void SaveExecute()
         {
             try
@@ -102,11 +112,11 @@ namespace PanPizza.ViewModel
             }
             catch (Exception)
             {
-                MessageBox.Show("Wrong inputs, please check your inputs or try again.");
+                MessageBox.Show("Wrong inputs, please check your size input.");
             }
         }
 
-        // command for closing the window
+        // command for calculating the amount
         private ICommand calculate;
         public ICommand Calculate
         {
@@ -120,11 +130,22 @@ namespace PanPizza.ViewModel
             }
         }
 
+        /// <summary>
+        /// method for Calculate button
+        /// </summary>
+        /// <returns></returns>
         private bool CanCalculateExecute()
         {
-            return true;
+            if (size != null)
+            {
+                return true;
+            }
+            return false;
         }
 
+        /// <summary>
+        /// method for calculating the amount
+        /// </summary>
         private void CalculateExecute()
         {
             try
@@ -183,11 +204,11 @@ namespace PanPizza.ViewModel
                     price += 15;
                 }
 
-                MessageBox.Show("Amount to pay is: " + price + " DIN");
+                MessageBox.Show("Your amount to pay is: " + price + " DIN");
             }
             catch (Exception)
             {
-                MessageBox.Show("Wrong inputs, please check your inputs or try again.");
+                MessageBox.Show("Wrong inputs, please check your size input.");
             }
         }
 
@@ -224,7 +245,13 @@ namespace PanPizza.ViewModel
         {
             return true;
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// method for getting all sizes to the list
+        /// </summary>
+        /// <returns></returns>
         private List<tblSize> GetAllSize()
         {
             try
@@ -242,5 +269,6 @@ namespace PanPizza.ViewModel
                 return null;
             }
         }
+        #endregion
     }
 }

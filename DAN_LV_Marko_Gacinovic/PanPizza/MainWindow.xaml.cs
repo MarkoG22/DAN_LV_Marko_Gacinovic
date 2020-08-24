@@ -14,6 +14,11 @@ namespace PanPizza
             this.DataContext = new MainWindowViewModel(this);
         }
 
+        /// <summary>
+        /// method for disabling user controls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void BtnCalculate_Click(object sender, RoutedEventArgs e)
         {
             cmbSize.IsEnabled = false;
@@ -27,6 +32,38 @@ namespace PanPizza
             cbOregano.IsEnabled = false;
             cbSesame.IsEnabled = false;
             cbCheese.IsEnabled = false;
-        }        
+        }
+
+        /// <summary>
+        /// method for enabling user controls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            cmbSize.IsEnabled = true;
+            cbSalami.IsEnabled = true;
+            cbHam.IsEnabled = true;
+            cbKulen.IsEnabled = true;
+            cbKetchup.IsEnabled = true;
+            cbMayonnaise.IsEnabled = true;
+            cbHotPepper.IsEnabled = true;
+            cbOlives.IsEnabled = true;
+            cbOregano.IsEnabled = true;
+            cbSesame.IsEnabled = true;
+            cbCheese.IsEnabled = true;
+
+            //cmbSize = null;
+            //cbSalami = null;
+            //cbHam = null;
+            //cbKulen = null;
+            //cbKetchup = null;
+            //cbMayonnaise = null;
+            //cbHotPepper = null;
+            //cbOlives = null;
+            //cbOregano = null;
+            //cbSesame = null;
+            //cbCheese = null;
+        }
     }
 }
