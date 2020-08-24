@@ -5,8 +5,91 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PanPizza"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="350">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="6"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="1" Grid.Row="1" Name="lblSize" Content="Size: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="3" Name="lblSalami" Content="Salami: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="5" Name="lblHam" Content="Ham: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="7" Name="lblKulen" Content="Kulen: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="9" Name="lblKetchup" Content="Ketchup: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="11" Name="lblMayonnaise" Content="Mayonnaise: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="13" Name="lblHotPepper" Content="Hot Pepper: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="15" Name="lblOlives" Content="Olives: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="17" Name="lblOregano" Content="Oregano: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="19" Name="lblSesame" Content="Sesame: " Padding="0" HorizontalAlignment="Right"/>
+        <Label Grid.Column="1" Grid.Row="21" Name="lblCheese" Content="Cheese: " Padding="0" HorizontalAlignment="Right"/>    
+        <ComboBox Grid.Column="3" Grid.Row="1" Name="cmbSize" Height="20" Width="150" DisplayMemberPath="SizeName"
+                 ItemsSource="{Binding SizeList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Size, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="3" Name="cbSalami" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Salami, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="5" Name="cbHam" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Ham, UpdateSourceTrigger=PropertyChanged}"/>        
+        <CheckBox Grid.Column="3" Grid.Row="7" Name="cbKulen" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Kulen, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="9" Name="cbKetchup" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Ketchup, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="11" Name="cbMayonnaise" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Mayonnaise, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="13" Name="cbHotPepper" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.HotPepper, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="15" Name="cbOlives" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Olives, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="17" Name="cbOregano" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Oregano, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="19" Name="cbSesame" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Sesame, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="21" Name="cbCheese" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Cheese, UpdateSourceTrigger=PropertyChanged}"/>        
+        <Button Grid.Column="3" Grid.Row="23" Name="btnCalculate" Content="Calculate amount" Height="20" Width="100" HorizontalAlignment="Center"
+                Command="{Binding Calculate, UpdateSourceTrigger=PropertyChanged}" Click="BtnCalculate_Click"/>
+        <Button Grid.Column="3" Grid.Row="29" Name="btnSave" Content="Save" Height="20" Width="70" HorizontalAlignment="Left"
+                Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}" Click="BtnSave_Click"/>
+        <Button Grid.Column="3" Grid.Row="29" Name="btnClose" Content="Close" Height="20" Width="70" HorizontalAlignment="Right"
+                Command="{Binding Close, UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Window>

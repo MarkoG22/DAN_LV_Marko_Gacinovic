@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PanPizza.ViewModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PanPizza
 {
@@ -23,6 +11,59 @@ namespace PanPizza
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowViewModel(this);
+        }
+
+        /// <summary>
+        /// method for disabling user controls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnCalculate_Click(object sender, RoutedEventArgs e)
+        {
+            cmbSize.IsEnabled = false;
+            cbSalami.IsEnabled = false;
+            cbHam.IsEnabled = false;
+            cbKulen.IsEnabled = false;
+            cbKetchup.IsEnabled = false;
+            cbMayonnaise.IsEnabled = false;
+            cbHotPepper.IsEnabled = false;
+            cbOlives.IsEnabled = false;
+            cbOregano.IsEnabled = false;
+            cbSesame.IsEnabled = false;
+            cbCheese.IsEnabled = false;
+        }
+
+        /// <summary>
+        /// method for enabling user controls
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            cmbSize.IsEnabled = true;
+            cbSalami.IsEnabled = true;
+            cbHam.IsEnabled = true;
+            cbKulen.IsEnabled = true;
+            cbKetchup.IsEnabled = true;
+            cbMayonnaise.IsEnabled = true;
+            cbHotPepper.IsEnabled = true;
+            cbOlives.IsEnabled = true;
+            cbOregano.IsEnabled = true;
+            cbSesame.IsEnabled = true;
+            cbCheese.IsEnabled = true;
+
+            //cmbSize = null;
+            //cbSalami = null;
+            //cbHam = null;
+            //cbKulen = null;
+            //cbKetchup = null;
+            //cbMayonnaise = null;
+            //cbHotPepper = null;
+            //cbOlives = null;
+            //cbOregano = null;
+            //cbSesame = null;
+            //cbCheese = null;
         }
     }
 }

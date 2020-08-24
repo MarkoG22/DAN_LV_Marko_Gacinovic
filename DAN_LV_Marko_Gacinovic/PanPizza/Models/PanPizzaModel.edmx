@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PanPizzaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblPizza">
+          <Key>
+            <PropertyRef Name="PizzaID" />
+          </Key>
+          <Property Name="PizzaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Salami" Type="bit" />
+          <Property Name="Ham" Type="bit" />
+          <Property Name="Kulen" Type="bit" />
+          <Property Name="Ketchup" Type="bit" />
+          <Property Name="Mayonnaise" Type="bit" />
+          <Property Name="HotPepper" Type="bit" />
+          <Property Name="Olives" Type="bit" />
+          <Property Name="Oregano" Type="bit" />
+          <Property Name="Sesame" Type="bit" />
+          <Property Name="Cheese" Type="bit" />
+          <Property Name="Price" Type="int" />
+          <Property Name="SizeID" Type="int" />
+        </EntityType>
+        <EntityType Name="tblSize">
+          <Key>
+            <PropertyRef Name="SizeID" />
+          </Key>
+          <Property Name="SizeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SizeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__tblPizza__SizeID__300424B4">
+          <End Role="tblSize" Type="Self.tblSize" Multiplicity="0..1" />
+          <End Role="tblPizza" Type="Self.tblPizza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSize">
+              <PropertyRef Name="SizeID" />
+            </Principal>
+            <Dependent Role="tblPizza">
+              <PropertyRef Name="SizeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PanPizzaModelStoreContainer">
+          <EntitySet Name="tblPizza" EntityType="Self.tblPizza" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSize" EntityType="Self.tblSize" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblPizza__SizeID__300424B4" Association="Self.FK__tblPizza__SizeID__300424B4">
+            <End Role="tblSize" EntitySet="tblSize" />
+            <End Role="tblPizza" EntitySet="tblPizza" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PanPizzaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblPizza">
+          <Key>
+            <PropertyRef Name="PizzaID" />
+          </Key>
+          <Property Name="PizzaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Salami" Type="Boolean" />
+          <Property Name="Ham" Type="Boolean" />
+          <Property Name="Kulen" Type="Boolean" />
+          <Property Name="Ketchup" Type="Boolean" />
+          <Property Name="Mayonnaise" Type="Boolean" />
+          <Property Name="HotPepper" Type="Boolean" />
+          <Property Name="Olives" Type="Boolean" />
+          <Property Name="Oregano" Type="Boolean" />
+          <Property Name="Sesame" Type="Boolean" />
+          <Property Name="Cheese" Type="Boolean" />
+          <Property Name="SizeID" Type="Int32" />
+          <NavigationProperty Name="tblSize" Relationship="Self.FK__tblPizza__SizeID__267ABA7A" FromRole="tblPizza" ToRole="tblSize" />
+          <Property Name="Price" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblSize">
+          <Key>
+            <PropertyRef Name="SizeID" />
+          </Key>
+          <Property Name="SizeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SizeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tblPizzas" Relationship="Self.FK__tblPizza__SizeID__267ABA7A" FromRole="tblSize" ToRole="tblPizza" />
+        </EntityType>
+        <Association Name="FK__tblPizza__SizeID__267ABA7A">
+          <End Role="tblSize" Type="Self.tblSize" Multiplicity="0..1" />
+          <End Role="tblPizza" Type="Self.tblPizza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblSize">
+              <PropertyRef Name="SizeID" />
+            </Principal>
+            <Dependent Role="tblPizza">
+              <PropertyRef Name="SizeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PanPizzaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblPizzas" EntityType="Self.tblPizza" />
+          <EntitySet Name="tblSizes" EntityType="Self.tblSize" />
+          <AssociationSet Name="FK__tblPizza__SizeID__267ABA7A" Association="Self.FK__tblPizza__SizeID__267ABA7A">
+            <End Role="tblSize" EntitySet="tblSizes" />
+            <End Role="tblPizza" EntitySet="tblPizzas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PanPizzaModelStoreContainer" CdmEntityContainer="PanPizzaEntities">
+          <EntitySetMapping Name="tblPizzas">
+            <EntityTypeMapping TypeName="PanPizzaModel.tblPizza">
+              <MappingFragment StoreEntitySet="tblPizza">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PizzaID" ColumnName="PizzaID" />
+                <ScalarProperty Name="Salami" ColumnName="Salami" />
+                <ScalarProperty Name="Ham" ColumnName="Ham" />
+                <ScalarProperty Name="Kulen" ColumnName="Kulen" />
+                <ScalarProperty Name="Ketchup" ColumnName="Ketchup" />
+                <ScalarProperty Name="Mayonnaise" ColumnName="Mayonnaise" />
+                <ScalarProperty Name="HotPepper" ColumnName="HotPepper" />
+                <ScalarProperty Name="Olives" ColumnName="Olives" />
+                <ScalarProperty Name="Oregano" ColumnName="Oregano" />
+                <ScalarProperty Name="Sesame" ColumnName="Sesame" />
+                <ScalarProperty Name="Cheese" ColumnName="Cheese" />
+                <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSizes">
+            <EntityTypeMapping TypeName="PanPizzaModel.tblSize">
+              <MappingFragment StoreEntitySet="tblSize">
+                <ScalarProperty Name="SizeID" ColumnName="SizeID" />
+                <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
