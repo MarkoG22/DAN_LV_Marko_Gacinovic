@@ -63,24 +63,24 @@
         <CheckBox Grid.Column="3" Grid.Row="3" Name="cbSalami" Height="20" Width="150"
                   IsChecked="{Binding Pizza.Salami, UpdateSourceTrigger=PropertyChanged}"/>
         <CheckBox Grid.Column="3" Grid.Row="5" Name="cbHam" Height="20" Width="150"
-                  IsChecked="{Binding Pizza.Ham, UpdateSourceTrigger=PropertyChanged}"/>
-        <CheckBox Grid.Column="3" Grid.Row="7" Name="cbReception" Height="20" Width="150"
-                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
-        <CheckBox Grid.Column="3" Grid.Row="9" Name="cbKulen" Height="20" Width="150"
-                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
-        <CheckBox Grid.Column="3" Grid.Row="11" Name="cbKetchup" Height="20" Width="150"
-                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
-        <CheckBox Grid.Column="3" Grid.Row="13" Name="cbMayonnaise" Height="20" Width="150"
-                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
-        <CheckBox Grid.Column="3" Grid.Row="15" Name="cbHotPepper" Height="20" Width="150"
-                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
-        <CheckBox Grid.Column="3" Grid.Row="17" Name="cbOlives" Height="20" Width="150"
-                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
-        <CheckBox Grid.Column="3" Grid.Row="19" Name="cbOregano" Height="20" Width="150"
-                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
-        <CheckBox Grid.Column="3" Grid.Row="21" Name="cbSesame" Height="20" Width="150"
-                  IsChecked="{Binding Doctor.Reception, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Grid.Column="3" Grid.Row="23" Name="txtPrice" Height="20" Width="150" PreviewTextInput="NumbersTextBox"
+                  IsChecked="{Binding Pizza.Ham, UpdateSourceTrigger=PropertyChanged}"/>        
+        <CheckBox Grid.Column="3" Grid.Row="7" Name="cbKulen" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Kulen, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="9" Name="cbKetchup" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Ketchup, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="11" Name="cbMayonnaise" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Mayonnaise, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="13" Name="cbHotPepper" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.HotPepper, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="15" Name="cbOlives" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Olives, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="17" Name="cbOregano" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Oregano, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="19" Name="cbSesame" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Sesame, UpdateSourceTrigger=PropertyChanged}"/>
+        <CheckBox Grid.Column="3" Grid.Row="21" Name="cbCheese" Height="20" Width="150"
+                  IsChecked="{Binding Pizza.Cheese, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="3" Grid.Row="23" Name="txtPrice" IsReadOnly="True" Height="20" Width="150"
                  Text="{Binding Pizza.Price, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Grid.Column="3" Grid.Row="27" Name="btnSave" Content="Save" Height="20" Width="70" HorizontalAlignment="Left"
                 Command="{Binding Save, UpdateSourceTrigger=PropertyChanged}"/>
